@@ -1,0 +1,14 @@
+# Normalise line endings: the project is developed on Windows and Linux, and shell
+# scripts / CI checkouts must be LF or they fail with `bad interpreter`.
+* text=auto eol=lf
+
+# Explicitly binary so nothing rewrites them.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.gz binary
+*.whl binary
+
+# Keep the diff readable for generated or vendored text where it matters.
+CHANGELOG.md merge=union

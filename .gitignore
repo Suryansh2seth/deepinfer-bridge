@@ -1,0 +1,51 @@
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Packaging / build output ------------------------------------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+*.whl
+
+# --- Virtual environments ----------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# --- Test, lint and type-check caches ---------------------------------------
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# --- Local secrets and configuration (never commit these) -------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# --- Model and tokenizer artifacts (large; fetched per the README) ----------
+tokenizer.json
+tokenizer_config.json
+*.safetensors
+*.bin
+*.gguf
+
+# --- Editors and OS ----------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,50 @@
+[project]
+name = "deepinfer-bridge"
+version = "0.2.0"
+description = "OpenAI-compatible HTTP bridge: DeepSeek Harness -> deepseek-recipe -> DeepInfer"
+requires-python = ">=3.10"
+dependencies = [
+  "deepseek-recipe>=0.2,<0.3",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "httpx>=0.27"]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6", "pyright>=1.1.380"]
+
+[project.scripts]
+deepinfer-bridge = "deepinfer_bridge.__main__:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["deepinfer_bridge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM"]
+
+[tool.pyright]
+# engine_real.py is excluded because it imports deepinfer/torch, which are only present on
+# the supported GPU hosts; without them pyright cannot resolve the imports and would report
+# nothing but noise. Everything else is checked.
+exclude = ["deepinfer_bridge/engine_real.py", ".venv", "**/__pycache__"]
+include = ["deepinfer_bridge", "tests"]
+pythonVersion = "3.10"
+typeCheckingMode = "basic"
+reportMissingTypeStubs = false
+# Resolve imports from the project venv that CONTRIBUTING.md tells you to create.
+# Without this, pyright falls back to the system interpreter and reports pytest/starlette
+# as unresolved -- an environment artifact, not a code defect. If .venv is absent (CI
+# installs into the active interpreter instead) pyright falls back as before.
+venvPath = "."
+venv = ".venv"
