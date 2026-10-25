@@ -19,26 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-## Third-party attribution
-
-This project contains code adapted from, and depends on, the following projects.
-
-### deepseek-recipe (MIT)
-
-- The HTTP/SSE response structure in `deepinfer_bridge/server.py` and the request
-  preparation flow in `deepinfer_bridge/protocol.py` follow the `server-py` example from
-  <https://github.com/deepseek-ai/deepseek-recipe> (MIT).
-- The `deepseek-recipe` package itself is a runtime dependency
-  (`deepseek-recipe>=0.2,<0.3`), used for request conversion, prompt encoding, streaming
-  decode, tool-call/thinking parsing and usage accounting.
-
-### DeepInfer (Apache License 2.0)
-
-- `deepinfer_bridge/engine_real.py` mirrors the engine construction and environment setup of
-  DeepInfer's `examples/_config.py`, `examples/_launch.py` and
-  `examples/offline_inference.py`:
-  <https://github.com/deepseek-ai/DeepInfer> (Apache-2.0).
-- DeepInfer is not vendored here; it is imported at runtime on supported hardware.
