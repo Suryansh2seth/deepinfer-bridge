@@ -205,7 +205,7 @@ exist on supported GPU hosts.
 | `rustup`: "no default toolchain" | partial Rust install (0-byte binaries) | `rm -rf ~/.rustup/toolchains/stable-*`, then reinstall |
 
 Protocol code adapted from deepseek-recipe's `server-py` (MIT); engine setup mirrors
-DeepInfer's examples (Apache-2.0). See `LICENSE`.
+DeepInfer's examples (Apache-2.0). See [`LICENSE`](LICENSE) and [`NOTICE.md`](NOTICE.md).
 
 ## Development and contributing
 
@@ -223,4 +223,4 @@ must pass, and what "verified" means in this project. Security issues should go 
 More documentation: [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) ·
 [`OPERATIONS.md`](docs/OPERATIONS.md) · [`HARDWARE_BRINGUP.md`](docs/HARDWARE_BRINGUP.md) ·
 [`REPORT.md`](REPORT.md) · [`CHANGELOG.md`](CHANGELOG.md) ·
-[`CONTRIBUTING.md`](CONTRIBUTING.md) · [`SECURITY.md`](SECURITY.md)
+[`CONTRIBUTING.md`](CONTRIBUTING.md) · [`SECURITY.md`](SECURITY.md) · [`NOTICE.md`](NOTICE.md)
