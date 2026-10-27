@@ -121,7 +121,7 @@ can be checked.
 | Abort race (disconnect) | `release()` aborts unfinished work; abort acknowledged over IPC | `test_release_aborts_an_unfinished_request_at_the_ipc_layer`, `test_release_is_idempotent` |
 | Stop + max_tokens together | — | `test_stop_and_max_tokens_together` |
 | Lint / types | ruff 0.17.2 clean, pyright 0 errors | see §6 |
-| CI | `.github/workflows/ci.yml`: tests on 3.10/3.11/3.12 + ruff + pyright; fetches the pinned tokenizer and **fails if any test skips** | not executed (no CI runner available here) |
+| CI | no hosted CI: the `.github/workflows` directory was removed at the maintainer's request, so the four checks below are run locally | n/a |
 
 ### Bugs the new tests actually caught
 
@@ -214,9 +214,10 @@ drop path; the API signatures in §4.
 - Every line of `engine_real.py` — no rank has ever started, no request has ever reached a
   real engine, no token has ever come back from one.
 - Anything requiring SM100 / Ascend 950: Phases 1, 2, 3, 4, 6.
-- The CI workflow (no runner available here).
-- `pyproject.toml`'s `pyright`/`ruff` sections are honoured locally, but the GitHub Actions
-  file itself has never run.
+- Hosted CI: there is none. The `.github/workflows` directory was removed at the maintainer's
+  request, so ruff, pyright and pytest only ever ran on the development machine described in
+  §2 — never on a clean GitHub runner. `pyproject.toml`'s `ruff`/`pyright` sections are
+  honoured by those local runs.
 
 **Specifically NOT claimed:** that this is deployable against a real DeepInfer engine. The
 protocol layer is; the engine integration is a well-researched hypothesis.
